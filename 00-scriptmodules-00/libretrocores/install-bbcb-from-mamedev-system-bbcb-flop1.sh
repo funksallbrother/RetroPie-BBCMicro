@@ -12,14 +12,14 @@
 rp_module_id="install-bbcb-from-mamedev-system-bbcb-flop1"
 rp_module_name="BBC Micro Model B with floppydisk1 support"
 rp_module_ext=".zip .7z .1dd .360 .adf .adl .adm .ads .bbc .bin .cqi .cqm .csw .d77 .d88 .dfi .dsd .dsk .fsd .hfe .ima .imd .img .ipf .mfi .mfm .prn .rom .ssd .td0 .uef .ufi .wav "
-rp_module_desc="Use lr-mess/mame emulator for ($rp_module_name)"
+rp_module_desc="Use lr-mess/mamemess emulator for ($rp_module_name)"
 rp_module_help="ROM Extensions: $rp_module_ext\n
 Above extensions are included for compatibility between different media installs.\n\n
 ROM extensions only supported by this install:\n
 .zip .7z .ssd .bbc .img .dsd .adf .ads .adm .adl .fsd .dsk .ima .ufi .360 .d77 .d88 .1dd .dfi .hfe .imd .ipf .mfi .mfm .td0 .cqm .cqi\n\n
 Put games in:\n
 $romdir/bbcb\n\n
-Put BIOS files in $biosdir/mame:\n
+Put BIOS files in $biosdir/mamemess:\n
 bbcb.zip\n
 Note:\n
 BIOS info is automatically generated,\n
@@ -30,7 +30,7 @@ rp_module_section="exp"
 rp_module_flags=""
 
 function depends_install-bbcb-from-mamedev-system-bbcb-flop1() {
-	local _mess=$(dirname "$md_inst")/lr-mess/mess_libretro.so
+	local _mess=$(dirname "$md_inst")/lr-mess/mamemess_libretro.so
 	if [[ ! -f "$_mess" ]]; then
 		printMsgs dialog "cannot find '$_mess' !\n\nplease install 'lr-mess' package."
 		exit 1
@@ -84,7 +84,7 @@ function configure_install-bbcb-from-mamedev-system-bbcb-flop1() {
 	chmod 755 "$_script"
 
 	# add the emulators.cfg as normal, pointing to the above script # use old mess name for booting
-	addEmulator 0 "lr-mess-system-bbcb-flop1" "$_system" "$_script $_retroarch_bin $_mess $_config \bbcb $biosdir/mame -autoframeskip -flop1 %ROM%"
+	addEmulator 0 "lr-mess-system-bbcb-flop1" "$_system" "$_script $_retroarch_bin $_mess $_config \bbcb $biosdir/mamemess -autoframeskip -flop1 %ROM%"
 	addEmulator 0 "mame-system-bbcb-flop1" "$_system" "/opt/retropie/emulators/mame/mame -v -c bbcb -flop1 %ROM%"
         addEmulator 0 "mame-system-bbcb-flop1-autoframeskip" "$_system" "/opt/retropie/emulators/mame/mame -v -c -autoframeskip bbcb -flop1 %ROM%"
 
