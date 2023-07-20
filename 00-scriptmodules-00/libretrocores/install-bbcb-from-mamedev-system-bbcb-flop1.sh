@@ -9,7 +9,7 @@
 # at https://raw.githubusercontent.com/RetroPie/RetroPie-Setup/master/LICENSE.md
 #
 
-rp_module_id="install-bbcb-from-mamedev-system-bbcb-flop1"
+rp_module_id="install-bbcb-custom"
 rp_module_name="BBC Micro Model B with floppydisk1 support"
 rp_module_ext=".zip .7z .1dd .360 .adf .adl .adm .ads .bbc .bin .cqi .cqm .csw .d77 .d88 .dfi .dsd .dsk .fsd .hfe .ima .imd .img .ipf .mfi .mfm .prn .rom .ssd .td0 .uef .ufi .wav "
 rp_module_desc="Use lr-mess/mess emulator for ($rp_module_name)"
